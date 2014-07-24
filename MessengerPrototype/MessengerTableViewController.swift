@@ -85,7 +85,7 @@ class MessengerTableViewController: UITableViewController, UITableViewDataSource
         cell.messageLabel.numberOfLines = 0
         
         if UIApplication.sharedApplication().statusBarOrientation.isLandscape == true {
-            cell.messageLabel.preferredMaxLayoutWidth = cell.frame.size.width - 60
+            cell.messageLabel.preferredMaxLayoutWidth = cell.frame.size.width - 80
         } else {
             cell.messageLabel.preferredMaxLayoutWidth = cell.frame.size.width - 35
         }
