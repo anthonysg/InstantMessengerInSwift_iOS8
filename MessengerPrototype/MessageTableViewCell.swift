@@ -19,6 +19,11 @@ class MessageTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.messageLabel.lineBreakMode = NSLineBreakMode.ByWordWrapping
+        self.messageLabel.numberOfLines = 0
+        self.layer.masksToBounds = true
+        self.msgBubble.layer.cornerRadius = 10.0
+        
         // Initialization code
     }
 

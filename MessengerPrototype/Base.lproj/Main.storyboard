@@ -7,7 +7,7 @@
         <!--Messenger Table View Controller - Messaging Prototype-->
         <scene sceneID="6FR-le-LrT">
             <objects>
-                <tableViewController storyboardIdentifier="tableView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="18o-nB-5Av" customClass="MessengerTableViewController" customModule="MessengerPrototype" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="18o-nB-5Av" customClass="MessengerTableViewController" customModule="MessengerPrototype" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="jEp-VT-U7o">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="339"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -62,7 +62,7 @@
         <!--Container View Controller - Messaging Prototype-->
         <scene sceneID="XXX-d4-XDW">
             <objects>
-                <viewController id="iah-Ib-3hj" customClass="ContainerViewController" customModule="MessengerPrototype" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Messenger" id="iah-Ib-3hj" customClass="ContainerViewController" customModule="MessengerPrototype" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Oks-pD-fgD"/>
                         <viewControllerLayoutGuide type="bottom" id="kAi-r8-f4e"/>
@@ -80,9 +80,6 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="editingDidBegin:" destination="iah-Ib-3hj" eventType="editingDidBegin" id="dcf-TC-k56"/>
-                                </connections>
                             </textField>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ebk-fF-M4b">
                                 <rect key="frame" x="0.0" y="436" width="480" height="44"/>
@@ -98,7 +95,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3kZ-Jz-2fw">
                                 <rect key="frame" x="0.0" y="64" width="480" height="339"/>
                                 <connections>
-                                    <segue destination="18o-nB-5Av" kind="embed" id="oWb-gZ-oqL"/>
+                                    <segue destination="18o-nB-5Av" kind="embed" identifier="tableView" id="oWb-gZ-oqL"/>
                                 </connections>
                             </containerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lJN-NK-mon">

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MessengerTableViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, UITextFieldDelegate {
+class MessengerTableViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, UITextFieldDelegate, MessengerTableViewControllerDelegate {
 
     var friends = String[]()
     var profileImages = String[]()
@@ -31,13 +31,11 @@ class MessengerTableViewController: UITableViewController, UITableViewDataSource
         self.refreshControl.setNeedsLayout()
         
         self.tableView.reloadData()
-        
-        //textField.borderStyle = UITextBorderStyle.RoundedRect
-        self.tableView.setContentOffset(CGPointMake(0, CGFLOAT_MAX), animated: true)
-        //UITextFieldViewMode.Always
+
+        self.messengerScrollToBottom(firstTimeOccurring: true)
         
         self.refreshControl.addTarget(self, action:Selector("didRefreshTable"), forControlEvents: UIControlEvents.ValueChanged)
-        NSNotificationCenter.defaultCenter().postNotificationName("editingDidBegin:", object: self)
+        self.tableView.keyboardDismissMode  =  UIScrollViewKeyboardDismissMode.Interactive
     }
 
     /*
@@ -81,25 +79,25 @@ class MessengerTableViewController: UITableViewController, UITableViewDataSource
     override func tableView(tableView: UITableView?, cellForRowAtIndexPath indexPath: NSIndexPath?) -> UITableViewCell? {
         let cell = tableView!.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as MessageTableViewCell
         
-        cell.messageLabel.lineBreakMode = NSLineBreakMode.ByWordWrapping
-        cell.messageLabel.numberOfLines = 0
+        //cell.messageLabel.lineBreakMode = NSLineBreakMode.ByWordWrapping
+        //cell.messageLabel.numberOfLines = 0
         
         if UIApplication.sharedApplication().statusBarOrientation.isLandscape == true {
             cell.messageLabel.preferredMaxLayoutWidth = cell.frame.size.width - 80
         } else {
             cell.messageLabel.preferredMaxLayoutWidth = cell.frame.size.width - 35
         }
-        
+
         preferredWidth = cell.messageLabel.preferredMaxLayoutWidth
         
         cell.messageLabel.text = friends[indexPath!.row]
         cell.messageLabel.sizeToFit()
         cell.messageLabel.setNeedsDisplay()
         
-        cell.msgBubble.layer.masksToBounds = true
-        cell.msgBubble.layer.cornerRadius = 10.0
+        //cell.msgBubble.layer.masksToBounds = true
+        //cell.msgBubble.layer.cornerRadius = 10.0
         
-        
+        //--
         //cell.messageLabel.backgroundColor = UIColor(red: 125/255, green: 120/255, blue: 150/255, alpha: 0.5)
         
         //cell.msgBubble.frame = cell.messageLabel.frame
@@ -129,9 +127,17 @@ class MessengerTableViewController: UITableViewController, UITableViewDataSource
         self.tableView.reloadData()
     }
     
-    func scrollToBottom() {
+    func messengerScrollToBottom(firstTimeOccurring firstTime : Bool) {
+        //self.tableView.scrollToNearestSelectedRowAtScrollPosition(UITableViewScrollPosition.Bottom, animated: true)
+        //self.tableView.scrollToRowAtIndexPath(NSIndexPath(forRow: friends.count, inSection: 0), atScrollPosition: UITableViewScrollPosition.Bottom, animated: true)
         
-        self.tableView.setContentOffset(CGPointMake(0, CGFLOAT_MAX), animated: true)
+        
+        if firstTime == true {
+            self.tableView.setContentOffset(CGPointMake(0, CGFLOAT_MAX), animated: true)
+        } else {
+        self.tableView.setContentOffset(CGPointMake(0, self.tableView.contentSize.height - self.tableView.bounds.size.height), animated: true)
+        }
+
     }
     
     /*
@@ -171,4 +177,8 @@ class MessengerTableViewController: UITableViewController, UITableViewDataSource
     }
     */
 
+}
+
+protocol MessengerTableViewControllerDelegate {
+    func messengerScrollToBottom(firstTimeOccurring firstTime : Bool)
 }
