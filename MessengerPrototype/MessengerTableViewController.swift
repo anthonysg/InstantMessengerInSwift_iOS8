@@ -79,7 +79,7 @@ class MessengerTableViewController: UITableViewController, UITableViewDataSource
     
     override func tableView(tableView: UITableView?, cellForRowAtIndexPath indexPath: NSIndexPath?) -> UITableViewCell? {
         let cell = tableView!.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as MessageTableViewCell
-        let cell2 = tableView!.dequeueReusableCellWithIdentifier("Cell2", forIndexPath: indexPath) as MessageTableViewCell
+        //let cell2 = tableView!.dequeueReusableCellWithIdentifier("Cell2", forIndexPath: indexPath) as MessageTableViewCell
         //cell.messageLabel.lineBreakMode = NSLineBreakMode.ByWordWrapping
         //cell.messageLabel.numberOfLines = 0
         
