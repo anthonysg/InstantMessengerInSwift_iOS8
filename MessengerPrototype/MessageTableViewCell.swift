@@ -19,6 +19,7 @@ class MessageTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.selectionStyle = UITableViewCellSelectionStyle.None
         self.messageLabel.lineBreakMode = NSLineBreakMode.ByWordWrapping
         self.messageLabel.numberOfLines = 0
         self.layer.masksToBounds = true

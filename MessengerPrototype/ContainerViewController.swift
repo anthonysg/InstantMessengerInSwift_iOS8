@@ -32,12 +32,12 @@ class ContainerViewController: UIViewController, UITextFieldDelegate {
         toolBar.clipsToBounds = true
         self.view.bringSubviewToFront(lightGreyBorder)
         
- 
-       var textF = UITextField(frame: CGRectMake(0, 300, self.textField.frame.size.width, self.textField.frame.size.height))
+        /* **FOR INPUTACCESSORYVIEW*** refer to https://github.com/666tos/CustomAccessoryViewSample **for iOS8**
+        var textF = UITextField(frame: CGRectMake(0, 300, self.textField.frame.size.width, self.textField.frame.size.height))
         textF.backgroundColor = UIColor.redColor()
         self.view.addSubview(textF)
         
-        var textF2 = UITextField()
+        var textF2 = MessageTextField()
         textF2.borderStyle = UITextBorderStyle.None
         textF2.frame.size = CGSizeMake(300, 300)
         textF2.text = self.textField.text
@@ -45,7 +45,7 @@ class ContainerViewController: UIViewController, UITextFieldDelegate {
         
         textF.inputAccessoryView = textF2
         textF2.frame.size = CGSizeMake(300, 300)
-        //self.view.addSubview(textF)
+*/
         // Do any additional setup after loading the view.
     }
 
@@ -72,19 +72,7 @@ class ContainerViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
-/*    func textFieldDidBeginEditing(textField: UITextField!) { //Come back to this to optimize textField movement.
-        self.view.setNeedsLayout()
-        baseConstraint.constant = 211
-        self.view.setNeedsUpdateConstraints()
-        
-        UIView.animateWithDuration(0.30, animations: {
-            self.view.layoutIfNeeded()
-            })
-        
-    }
-    */
-    
-    // Called when the UIKeyboardDidShowNotification is sent.
+    //Keyboard Notifications
     
     func registerForKeyboardNotifications()
         
@@ -95,7 +83,7 @@ class ContainerViewController: UIViewController, UITextFieldDelegate {
     }
     
     func keyboardWillShow(aNotification: NSNotification)    {
-/*        let duration = aNotification.userInfo.objectForKey(UIKeyboardAnimationDurationUserInfoKey) as Double
+        let duration = aNotification.userInfo.objectForKey(UIKeyboardAnimationDurationUserInfoKey) as Double
         let curve = aNotification.userInfo.objectForKey(UIKeyboardAnimationCurveUserInfoKey) as UInt
         
         //self.view.setNeedsLayout()
@@ -109,13 +97,11 @@ class ContainerViewController: UIViewController, UITextFieldDelegate {
         (value: Bool) in println()
         })
         
-        self.msgDelegate!.messengerScrollToBottom(firstTimeOccurring: false) */
+        self.msgDelegate!.messengerScrollToBottom(firstTimeOccurring: false)
     }
     
-    // Called when the UIKeyboardWillHideNotification is sent
-    
     func keyboardWillBeHidden(aNotification: NSNotification)    {
-        /*
+        
         
         let duration = aNotification.userInfo.objectForKey(UIKeyboardAnimationDurationUserInfoKey) as Double
         let curve = aNotification.userInfo.objectForKey(UIKeyboardAnimationCurveUserInfoKey) as UInt
@@ -130,7 +116,7 @@ class ContainerViewController: UIViewController, UITextFieldDelegate {
             //self.childView!.layoutIfNeeded()
             }, completion: {
                 (value: Bool) in println()
-            }) */
+            })
     }
     
     //Bugs

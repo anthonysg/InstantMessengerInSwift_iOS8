@@ -9,7 +9,7 @@
             <objects>
                 <tableViewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="18o-nB-5Av" customClass="MessengerTableViewController" customModule="MessengerPrototype" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="jEp-VT-U7o">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="339"/>
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="331"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -44,6 +44,36 @@
                                     <outlet property="msgBubble" destination="miM-58-2aw" id="vRz-ME-hYm"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" ambiguous="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell2" id="1Eh-eL-17m" customClass="MessageTableViewCell" customModule="MessengerPrototype" customModuleProvider="target">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1Eh-eL-17m" id="uPp-zh-oCl">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7fv-N7-Kmg">
+                                            <rect key="frame" x="375" y="4" width="56" height="35"/>
+                                            <color key="backgroundColor" red="0.3243835924224287" green="0.54018021399072891" blue="0.89096380739795922" alpha="1" colorSpace="calibratedRGB"/>
+                                        </view>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hSc-SG-tFH">
+                                            <rect key="frame" x="382" y="11" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="7fv-N7-Kmg" firstAttribute="trailing" secondItem="hSc-SG-tFH" secondAttribute="trailing" constant="7" id="3a2-oE-xKt"/>
+                                        <constraint firstItem="7fv-N7-Kmg" firstAttribute="top" secondItem="hSc-SG-tFH" secondAttribute="top" constant="-7" id="7fi-Qk-z0G"/>
+                                        <constraint firstItem="7fv-N7-Kmg" firstAttribute="bottom" secondItem="hSc-SG-tFH" secondAttribute="bottom" constant="7" id="BOG-WI-dv9"/>
+                                        <constraint firstItem="hSc-SG-tFH" firstAttribute="centerY" secondItem="uPp-zh-oCl" secondAttribute="centerY" id="JJP-hX-a3J"/>
+                                        <constraint firstItem="hSc-SG-tFH" firstAttribute="leading" secondItem="uPp-zh-oCl" secondAttribute="leading" constant="382" id="KrO-Eo-bta"/>
+                                        <constraint firstItem="7fv-N7-Kmg" firstAttribute="leading" secondItem="hSc-SG-tFH" secondAttribute="leading" constant="-7" id="ngU-ba-bGJ"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="messageLabel" destination="hSc-SG-tFH" id="xKg-RG-4k8"/>
+                                    <outlet property="msgBubble" destination="7fv-N7-Kmg" id="WBn-6n-nPT"/>
+                                </connections>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="18o-nB-5Av" id="yU3-Ci-MGN"/>
@@ -71,16 +101,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" Type a message..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IuV-m7-vQ6" customClass="MessageTextField" customModule="MessengerPrototype" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="403" width="480" height="33"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="33" id="B59-2z-ts3"/>
-                                </constraints>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ebk-fF-M4b">
                                 <rect key="frame" x="0.0" y="436" width="480" height="44"/>
                                 <items>
@@ -93,7 +113,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3kZ-Jz-2fw">
-                                <rect key="frame" x="0.0" y="64" width="480" height="339"/>
+                                <rect key="frame" x="0.0" y="64" width="480" height="331"/>
                                 <connections>
                                     <segue destination="18o-nB-5Av" kind="embed" identifier="tableView" id="oWb-gZ-oqL"/>
                                 </connections>
@@ -102,11 +122,21 @@
                                 <rect key="frame" x="0.0" y="403" width="480" height="1"/>
                                 <color key="backgroundColor" red="0.78214684311224492" green="0.78214684311224492" blue="0.78214684311224492" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" Type a message..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IuV-m7-vQ6" customClass="MessageTextField" customModule="MessengerPrototype" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="396" width="480" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="B59-2z-ts3"/>
+                                </constraints>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="IuV-m7-vQ6" firstAttribute="leading" secondItem="Ebk-fF-M4b" secondAttribute="leading" id="6NM-fF-sje"/>
-                            <constraint firstItem="lJN-NK-mon" firstAttribute="top" secondItem="IuV-m7-vQ6" secondAttribute="top" id="7d8-PB-WOv"/>
+                            <constraint firstItem="lJN-NK-mon" firstAttribute="top" secondItem="IuV-m7-vQ6" secondAttribute="top" constant="7" id="7d8-PB-WOv"/>
                             <constraint firstAttribute="bottom" secondItem="Ebk-fF-M4b" secondAttribute="bottom" id="95w-eT-SsR"/>
                             <constraint firstItem="IuV-m7-vQ6" firstAttribute="leading" secondItem="3kZ-Jz-2fw" secondAttribute="leading" id="Hy3-3T-15t"/>
                             <constraint firstItem="IuV-m7-vQ6" firstAttribute="trailing" secondItem="3kZ-Jz-2fw" secondAttribute="trailing" id="Ksz-cf-aZ3"/>
@@ -115,7 +145,7 @@
                             <constraint firstItem="IuV-m7-vQ6" firstAttribute="trailing" secondItem="Ebk-fF-M4b" secondAttribute="trailing" id="QyO-Fr-CQo"/>
                             <constraint firstItem="lJN-NK-mon" firstAttribute="leading" secondItem="IuV-m7-vQ6" secondAttribute="leading" id="Zys-bm-63F"/>
                             <constraint firstItem="3kZ-Jz-2fw" firstAttribute="leading" secondItem="guu-Eo-nZ6" secondAttribute="leading" id="a5K-ZD-fTx"/>
-                            <constraint firstItem="IuV-m7-vQ6" firstAttribute="top" secondItem="3kZ-Jz-2fw" secondAttribute="bottom" id="mMu-1w-Rii"/>
+                            <constraint firstItem="IuV-m7-vQ6" firstAttribute="top" secondItem="3kZ-Jz-2fw" secondAttribute="bottom" constant="1" id="mMu-1w-Rii"/>
                             <constraint firstItem="3kZ-Jz-2fw" firstAttribute="top" secondItem="Oks-pD-fgD" secondAttribute="bottom" id="nmv-Kh-34N"/>
                             <constraint firstItem="lJN-NK-mon" firstAttribute="trailing" secondItem="IuV-m7-vQ6" secondAttribute="trailing" id="qMU-BY-mka"/>
                             <constraint firstItem="IuV-m7-vQ6" firstAttribute="bottom" secondItem="Ebk-fF-M4b" secondAttribute="top" id="vdm-1D-Br0"/>

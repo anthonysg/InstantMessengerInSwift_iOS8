@@ -21,7 +21,7 @@ class MessengerTableViewController: UITableViewController, UITableViewDataSource
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        friends = ["Joe Georgio", "Mafio Ambroso", "Hey Tim, asf ,s fas fas f,af asfa a ,yoyo fafas fasdf as faf asfa Whattup", "Matthew Hall", "asd", "asda", "dasd", "addad", "sup", "dasdadad", "dasdfas", "dsad a dasdadada d", "dasd asd ad a da d"]
+        friends = ["Hey Dude!", "How are you?", "Been doing good, just been coding and playing alot of dota..", "Ah well that sounds like fun.", "Yup", "asda", "dasd", "addad", "sup", "dasdadad", "dasdfas", "dsad a dasdadada d", "dasd asd ad a da d"]
         //profileImages = ["ballmer", "checkmark", "OrangeSplashScreen", "twittericon", "OrangeSplashScreen2"]
         
         self.tableView.separatorColor = UIColor.clearColor()
@@ -35,13 +35,12 @@ class MessengerTableViewController: UITableViewController, UITableViewDataSource
         self.messengerScrollToBottom(firstTimeOccurring: true)
         
         self.refreshControl.addTarget(self, action:Selector("didRefreshTable"), forControlEvents: UIControlEvents.ValueChanged)
-        self.tableView.keyboardDismissMode  =  UIScrollViewKeyboardDismissMode.Interactive
+        self.tableView.keyboardDismissMode  =  UIScrollViewKeyboardDismissMode.OnDrag //change to interactive when inputAccessoryView is added.
     }
 
-    /*
-    override func scrollViewDidScroll(scrollView: UIScrollView!) {
-        textField.frame = CGRectMake(0, scrollView.contentOffset.y - 0.5, self.tableView.frame.width, 30)
-        println(scrollView.contentOffset.y)
+    
+/*    override func scrollViewDidScroll(scrollView: UIScrollView!) {
+        
     } */
 
     
@@ -78,9 +77,13 @@ class MessengerTableViewController: UITableViewController, UITableViewDataSource
     
     override func tableView(tableView: UITableView?, cellForRowAtIndexPath indexPath: NSIndexPath?) -> UITableViewCell? {
         let cell = tableView!.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as MessageTableViewCell
-        
+        //let cell2 = tableView!.dequeueReusableCellWithIdentifier("Cell2", forIndexPath: indexPath) as MessageTableViewCell
         //cell.messageLabel.lineBreakMode = NSLineBreakMode.ByWordWrapping
         //cell.messageLabel.numberOfLines = 0
+        
+        /*if (indexPath!.row == 2) {
+            cell = tableView!.dequeueReusableCellWithIdentifier("Cell2")
+        } */
         
         if UIApplication.sharedApplication().statusBarOrientation.isLandscape == true {
             cell.messageLabel.preferredMaxLayoutWidth = cell.frame.size.width - 80
@@ -104,7 +107,6 @@ class MessengerTableViewController: UITableViewController, UITableViewDataSource
         //cell.msgBubble.setNeedsDisplay()
         
         return cell
-        // Configure the cell...
     }
 
     override func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
