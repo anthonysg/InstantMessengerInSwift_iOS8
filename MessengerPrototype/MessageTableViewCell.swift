@@ -9,8 +9,8 @@
 import UIKit
 
 class MessageTableViewCell: UITableViewCell {
-    @IBOutlet var messageLabel : UILabel
-    @IBOutlet var msgBubble : UIView
+    @IBOutlet var messageLabel : UILabel!
+    @IBOutlet var msgBubble : UIView!
     
     init(style: UITableViewCellStyle, reuseIdentifier: String) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

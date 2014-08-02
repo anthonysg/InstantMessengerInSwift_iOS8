@@ -10,11 +10,11 @@ import UIKit
 
 class ContainerViewController: UIViewController, UITextFieldDelegate {
 
-    @IBOutlet var baseConstraint : NSLayoutConstraint
-    @IBOutlet var textField : UITextField
-    @IBOutlet var toolBar : UIToolbar
-    @IBOutlet var containerViewController : UIView
-    @IBOutlet var lightGreyBorder : UIView
+    @IBOutlet var baseConstraint : NSLayoutConstraint!
+    @IBOutlet var textField : UITextField!
+    @IBOutlet var toolBar : UIToolbar!
+    @IBOutlet var containerViewController : UIView!
+    @IBOutlet var lightGreyBorder : UIView!
     
     var child : MessengerTableViewController?
     var childView : UITableView?
@@ -83,8 +83,9 @@ class ContainerViewController: UIViewController, UITextFieldDelegate {
     }
     
     func keyboardWillShow(aNotification: NSNotification)    {
-        let duration = aNotification.userInfo.objectForKey(UIKeyboardAnimationDurationUserInfoKey) as Double
-        let curve = aNotification.userInfo.objectForKey(UIKeyboardAnimationCurveUserInfoKey) as UInt
+        let info = aNotification.userInfo
+        let duration = (info[UIKeyboardAnimationDurationUserInfoKey] as NSValue) as Double
+        let curve = (info[UIKeyboardAnimationCurveUserInfoKey] as NSValue) as UInt
         
         //self.view.setNeedsLayout()
         baseConstraint.constant = 211
@@ -101,10 +102,9 @@ class ContainerViewController: UIViewController, UITextFieldDelegate {
     }
     
     func keyboardWillBeHidden(aNotification: NSNotification)    {
-        
-        
-        let duration = aNotification.userInfo.objectForKey(UIKeyboardAnimationDurationUserInfoKey) as Double
-        let curve = aNotification.userInfo.objectForKey(UIKeyboardAnimationCurveUserInfoKey) as UInt
+        let info = aNotification.userInfo
+        let duration = (info[UIKeyboardAnimationDurationUserInfoKey] as NSValue) as Double
+        let curve = (info[UIKeyboardAnimationCurveUserInfoKey] as NSValue) as UInt
         
         baseConstraint.constant = 0
         self.view.setNeedsUpdateConstraints()

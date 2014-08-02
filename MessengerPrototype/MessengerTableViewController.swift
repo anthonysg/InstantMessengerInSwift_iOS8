@@ -10,8 +10,8 @@ import UIKit
 
 class MessengerTableViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, UITextFieldDelegate, MessengerTableViewControllerDelegate {
 
-    var friends = String[]()
-    var profileImages = String[]()
+    var friends = [String]()
+    var profileImages = [String]()
     
     var preferredWidth = CGFloat()
     
@@ -36,6 +36,8 @@ class MessengerTableViewController: UITableViewController, UITableViewDataSource
         
         self.refreshControl.addTarget(self, action:Selector("didRefreshTable"), forControlEvents: UIControlEvents.ValueChanged)
         self.tableView.keyboardDismissMode  =  UIScrollViewKeyboardDismissMode.OnDrag //change to interactive when inputAccessoryView is added.
+        
+        //tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell") //
     }
 
     
@@ -77,7 +79,7 @@ class MessengerTableViewController: UITableViewController, UITableViewDataSource
     
     override func tableView(tableView: UITableView?, cellForRowAtIndexPath indexPath: NSIndexPath?) -> UITableViewCell? {
         let cell = tableView!.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as MessageTableViewCell
-        //let cell2 = tableView!.dequeueReusableCellWithIdentifier("Cell2", forIndexPath: indexPath) as MessageTableViewCell
+        let cell2 = tableView!.dequeueReusableCellWithIdentifier("Cell2", forIndexPath: indexPath) as MessageTableViewCell
         //cell.messageLabel.lineBreakMode = NSLineBreakMode.ByWordWrapping
         //cell.messageLabel.numberOfLines = 0
         
@@ -135,7 +137,7 @@ class MessengerTableViewController: UITableViewController, UITableViewDataSource
         
         
         if firstTime == true {
-            self.tableView.setContentOffset(CGPointMake(0, CGFLOAT_MAX), animated: true)
+            self.tableView.setContentOffset(CGPointMake(0, CGFloat.max), animated: true)
         } else {
         self.tableView.setContentOffset(CGPointMake(0, self.tableView.contentSize.height - self.tableView.bounds.size.height), animated: true)
         }

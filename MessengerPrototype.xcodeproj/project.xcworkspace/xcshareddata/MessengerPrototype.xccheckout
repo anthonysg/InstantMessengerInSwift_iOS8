@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>07213F88-50BC-4DD6-8D89-E0C0CAF24AE4</string>
+	<key>IDESourceControlProjectName</key>
+	<string>MessengerPrototype</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>86A4B40F-7448-4DAC-A975-479C800A749B</key>
+		<string>ssh://github.com/anthonysg/InstantMessengerInSwift_iOS8.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>MessengerPrototype.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>86A4B40F-7448-4DAC-A975-479C800A749B</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/anthonysg/InstantMessengerInSwift_iOS8.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>86A4B40F-7448-4DAC-A975-479C800A749B</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>86A4B40F-7448-4DAC-A975-479C800A749B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>MessengerPrototype</string>
+		</dict>
+	</array>
+</dict>
+</plist>
