@@ -23,7 +23,7 @@ class MessageTableViewCell: UITableViewCell {
         self.messageLabel.lineBreakMode = NSLineBreakMode.ByWordWrapping
         self.messageLabel.numberOfLines = 0
         self.layer.masksToBounds = true
-        self.msgBubble.layer.cornerRadius = 10.0
+        self.msgBubble.layer.cornerRadius = 5.0
         
         // Initialization code
     }

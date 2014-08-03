@@ -37,7 +37,10 @@ class MessengerTableViewController: UITableViewController, UITableViewDataSource
         self.refreshControl.addTarget(self, action:Selector("didRefreshTable"), forControlEvents: UIControlEvents.ValueChanged)
         self.tableView.keyboardDismissMode  =  UIScrollViewKeyboardDismissMode.OnDrag //change to interactive when inputAccessoryView is added.
         
-        //tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell") //
+        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "SecondCell") //
+        
+        var nibName = UINib(nibName: "MainTableViewCell", bundle:nil)
+        self.tableView.registerNib(nibName, forCellReuseIdentifier: "SecondCell")
     }
 
     
@@ -79,18 +82,18 @@ class MessengerTableViewController: UITableViewController, UITableViewDataSource
     
     override func tableView(tableView: UITableView?, cellForRowAtIndexPath indexPath: NSIndexPath?) -> UITableViewCell? {
         let cell = tableView!.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as MessageTableViewCell
-        //let cell2 = tableView!.dequeueReusableCellWithIdentifier("Cell2", forIndexPath: indexPath) as MessageTableViewCell
+        //let cell2 = tableView!.dequeueReusableCellWithIdentifier("newCell", forIndexPath: indexPath) as MessageTableViewCell
         //cell.messageLabel.lineBreakMode = NSLineBreakMode.ByWordWrapping
         //cell.messageLabel.numberOfLines = 0
         
         /*if (indexPath!.row == 2) {
-            cell = tableView!.dequeueReusableCellWithIdentifier("Cell2")
+            cell = tableView!.dequeueReusableCellWithIdentifier("SecondCell") as MessageTableViewCell
         } */
         
         if UIApplication.sharedApplication().statusBarOrientation.isLandscape == true {
             cell.messageLabel.preferredMaxLayoutWidth = cell.frame.size.width - 80
         } else {
-            cell.messageLabel.preferredMaxLayoutWidth = cell.frame.size.width - 35
+            cell.messageLabel.preferredMaxLayoutWidth = cell.frame.size.width - 65
         }
 
         preferredWidth = cell.messageLabel.preferredMaxLayoutWidth
@@ -107,8 +110,20 @@ class MessengerTableViewController: UITableViewController, UITableViewDataSource
         
         //cell.msgBubble.frame = cell.messageLabel.frame
         //cell.msgBubble.setNeedsDisplay()
+        let cell2 = tableView!.dequeueReusableCellWithIdentifier("SecondCell", forIndexPath: indexPath) as MessageTableViewCell
+        if UIApplication.sharedApplication().statusBarOrientation.isLandscape == true {
+            cell2.messageLabel.preferredMaxLayoutWidth = cell2.frame.size.width - 80
+        } else {
+            cell2.messageLabel.preferredMaxLayoutWidth = cell2.frame.size.width - 80
+        }
+        cell2.messageLabel.text = friends[indexPath!.row]
+        cell2.messageLabel.sizeToFit()
+        cell2.messageLabel.setNeedsDisplay()
         
-        return cell
+        if (indexPath!.item != 2 && indexPath!.item != 4 && indexPath!.item != 6) {
+            return cell2 }
+        else {
+            return cell }
     }
 
     override func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat {

@@ -24,7 +24,7 @@
                                         </view>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jnt-jm-Tsy">
                                             <rect key="frame" x="50" y="12" width="42" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -43,18 +43,18 @@
                                     <outlet property="msgBubble" destination="miM-58-2aw" id="vRz-ME-hYm"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell2" id="1Eh-eL-17m" customClass="MessageTableViewCell" customModule="MessengerPrototype" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="newCell" id="1Eh-eL-17m" customClass="MessageTableViewCell" customModule="MessengerPrototype" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1Eh-eL-17m" id="uPp-zh-oCl">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7fv-N7-Kmg">
+                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7fv-N7-Kmg">
                                             <rect key="frame" x="375" y="4" width="56" height="35"/>
                                             <color key="backgroundColor" red="0.3243835924224287" green="0.54018021399072891" blue="0.89096380739795922" alpha="1" colorSpace="calibratedRGB"/>
                                         </view>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hSc-SG-tFH">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hSc-SG-tFH">
                                             <rect key="frame" x="382" y="11" width="42" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -97,7 +97,7 @@
                         <viewControllerLayoutGuide type="bottom" id="kAi-r8-f4e"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="guu-Eo-nZ6">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" Type a message..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IuV-m7-vQ6" customClass="MessageTextField" customModule="MessengerPrototype" customModuleProvider="target">
@@ -107,7 +107,7 @@
                                     <constraint firstAttribute="height" constant="40" id="B59-2z-ts3"/>
                                 </constraints>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3kZ-Jz-2fw">
@@ -116,10 +116,6 @@
                                     <segue destination="18o-nB-5Av" kind="embed" identifier="tableView" id="oWb-gZ-oqL"/>
                                 </connections>
                             </containerView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ufe-Ji-rKH">
-                                <rect key="frame" x="183" y="0.0" width="116" height="65"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lJN-NK-mon">
                                 <rect key="frame" x="0.0" y="523" width="600" height="1"/>
                                 <color key="backgroundColor" red="0.78214684311224492" green="0.78214684311224492" blue="0.78214684311224492" alpha="1" colorSpace="calibratedRGB"/>
