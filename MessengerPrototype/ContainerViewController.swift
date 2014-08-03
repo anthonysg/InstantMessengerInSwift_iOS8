@@ -120,11 +120,10 @@ class ContainerViewController: UIViewController, UITextFieldDelegate {
     }
     
     //Bugs
-    //-scroll to bottom of tableView when keyboard activates
     //-fix landscape mode autolayout for baseConstraint (toolbar/textfield fill whole screen).
     //-fix baseConstraint on iPad as well / Clean up code from modifying this stuff.
     //-Take a look at 'delayed autolayout' bug
-    //-textField starts new line after series of characters
+    //-textField starts new line after series of characters (multiline text view)
     //-"Send" Button on toolBar
     //-'slowly' dismiss keyboard
 }

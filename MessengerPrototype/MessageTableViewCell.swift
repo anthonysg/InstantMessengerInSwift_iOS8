@@ -11,6 +11,7 @@ import UIKit
 class MessageTableViewCell: UITableViewCell {
     @IBOutlet var messageLabel : UILabel!
     @IBOutlet var msgBubble : UIView!
+    @IBOutlet var userImageView: UIImageView!
     
     init(style: UITableViewCellStyle, reuseIdentifier: String) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -24,7 +25,6 @@ class MessageTableViewCell: UITableViewCell {
         self.messageLabel.numberOfLines = 0
         self.layer.masksToBounds = true
         self.msgBubble.layer.cornerRadius = 5.0
-        
         // Initialization code
     }
 

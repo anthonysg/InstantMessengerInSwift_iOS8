@@ -11,7 +11,7 @@ import UIKit
 class MessengerTableViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, UITextFieldDelegate, MessengerTableViewControllerDelegate {
 
     var friends = [String]()
-    var profileImages = [String]()
+    var profileImage = UIImage()
     
     var preferredWidth = CGFloat()
     
@@ -21,9 +21,9 @@ class MessengerTableViewController: UITableViewController, UITableViewDataSource
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        friends = ["Hey Dude!", "How are you?", "Been doing good, just been coding and playing alot of dota..", "Ah well that sounds like fun.", "Yup", "asda", "dasd", "addad", "sup", "dasdadad", "dasdfas", "dsad a dasdadada d", "dasd asd ad a da d"]
-        //profileImages = ["ballmer", "checkmark", "OrangeSplashScreen", "twittericon", "OrangeSplashScreen2"]
-        
+        friends = ["Hey Dude!", "How are you?", "Been doing good, just been coding and playing alot of dota..", "Ah well that sounds like fun.", "Yup", "asda", "dasd", "addad", "sup", "dasdadad", "dasdfas", "dsad a dasdadada d", "dasd asd ad a da dsadf as fas fas fas f adfas fasd fas dfas dfa "]
+        profileImage = UIImage(named: "sample_user_image")
+        //consecutiveProfileImageCounter = 0
         self.tableView.separatorColor = UIColor.clearColor()
         
         self.refreshControl.beginRefreshing()
@@ -85,10 +85,9 @@ class MessengerTableViewController: UITableViewController, UITableViewDataSource
         //let cell2 = tableView!.dequeueReusableCellWithIdentifier("newCell", forIndexPath: indexPath) as MessageTableViewCell
         //cell.messageLabel.lineBreakMode = NSLineBreakMode.ByWordWrapping
         //cell.messageLabel.numberOfLines = 0
-        
-        /*if (indexPath!.row == 2) {
-            cell = tableView!.dequeueReusableCellWithIdentifier("SecondCell") as MessageTableViewCell
-        } */
+        cell.userImageView.image = profileImage
+        cell.userImageView.layer.masksToBounds = true
+        cell.userImageView.layer.cornerRadius = 13.7
         
         if UIApplication.sharedApplication().statusBarOrientation.isLandscape == true {
             cell.messageLabel.preferredMaxLayoutWidth = cell.frame.size.width - 80
@@ -102,14 +101,7 @@ class MessengerTableViewController: UITableViewController, UITableViewDataSource
         cell.messageLabel.sizeToFit()
         cell.messageLabel.setNeedsDisplay()
         
-        //cell.msgBubble.layer.masksToBounds = true
-        //cell.msgBubble.layer.cornerRadius = 10.0
-        
-        //--
-        //cell.messageLabel.backgroundColor = UIColor(red: 125/255, green: 120/255, blue: 150/255, alpha: 0.5)
-        
-        //cell.msgBubble.frame = cell.messageLabel.frame
-        //cell.msgBubble.setNeedsDisplay()
+        //Creation of second cell type - This code design can be highly modified for better performance.
         let cell2 = tableView!.dequeueReusableCellWithIdentifier("SecondCell", forIndexPath: indexPath) as MessageTableViewCell
         if UIApplication.sharedApplication().statusBarOrientation.isLandscape == true {
             cell2.messageLabel.preferredMaxLayoutWidth = cell2.frame.size.width - 80

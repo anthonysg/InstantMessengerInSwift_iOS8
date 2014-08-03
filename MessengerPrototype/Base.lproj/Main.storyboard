@@ -19,20 +19,28 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view alpha="0.25" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="miM-58-2aw">
-                                            <rect key="frame" x="43" y="5" width="56" height="35"/>
+                                            <rect key="frame" x="43" y="6" width="54" height="34"/>
                                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         </view>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jnt-jm-Tsy">
-                                            <rect key="frame" x="50" y="12" width="42" height="21"/>
+                                            <rect key="frame" x="50" y="13" width="40" height="20"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SdY-kX-4qa">
+                                            <rect key="frame" x="4" y="6" width="31" height="31"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="27" id="QLt-hu-ptN"/>
+                                                <constraint firstAttribute="width" constant="27" id="fAO-d1-zPz"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="miM-58-2aw" firstAttribute="bottom" secondItem="Jnt-jm-Tsy" secondAttribute="bottom" constant="7" id="0ZK-Xk-c9a"/>
                                         <constraint firstItem="miM-58-2aw" firstAttribute="top" secondItem="Jnt-jm-Tsy" secondAttribute="top" constant="-7" id="1GC-aq-kTM"/>
                                         <constraint firstItem="Jnt-jm-Tsy" firstAttribute="centerY" secondItem="bde-i6-l17" secondAttribute="centerY" id="CbG-aK-TIc"/>
+                                        <constraint firstAttribute="bottom" secondItem="SdY-kX-4qa" secondAttribute="bottom" constant="6" id="Ebe-fG-zdc"/>
                                         <constraint firstItem="miM-58-2aw" firstAttribute="leading" secondItem="Jnt-jm-Tsy" secondAttribute="leading" constant="-7" id="Ebl-gI-HHh"/>
                                         <constraint firstItem="Jnt-jm-Tsy" firstAttribute="leading" secondItem="bde-i6-l17" secondAttribute="leading" constant="50" id="U0r-Le-1IU"/>
                                         <constraint firstItem="miM-58-2aw" firstAttribute="trailing" secondItem="Jnt-jm-Tsy" secondAttribute="trailing" constant="7" id="g9p-5K-ruv"/>
@@ -41,6 +49,7 @@
                                 <connections>
                                     <outlet property="messageLabel" destination="Jnt-jm-Tsy" id="A0r-fj-14O"/>
                                     <outlet property="msgBubble" destination="miM-58-2aw" id="vRz-ME-hYm"/>
+                                    <outlet property="userImageView" destination="SdY-kX-4qa" id="5wU-mf-YGd"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="newCell" id="1Eh-eL-17m" customClass="MessageTableViewCell" customModule="MessengerPrototype" customModuleProvider="target">
@@ -86,7 +95,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FZx-1v-Gyd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="584" y="250.5"/>
+            <point key="canvasLocation" x="584" y="248"/>
         </scene>
         <!--Messaging Prototype-->
         <scene sceneID="XXX-d4-XDW">

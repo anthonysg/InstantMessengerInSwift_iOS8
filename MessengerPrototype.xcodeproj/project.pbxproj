@@ -15,6 +15,7 @@
 		92990706197B013D00F08E5F /* MessengerPrototypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92990705197B013D00F08E5F /* MessengerPrototypeTests.swift */; };
 		92990710197B149F00F08E5F /* MessengerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9299070F197B149F00F08E5F /* MessengerTableViewController.swift */; };
 		92990712197B169D00F08E5F /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92990711197B169D00F08E5F /* MessageTableViewCell.swift */; };
+		92A49CF0198ED4FC006AFEDC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A49CEF198ED4FC006AFEDC /* User.swift */; };
 		92D2D9F2198DD26E00B297BB /* MainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92D2D9F1198DD26E00B297BB /* MainTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		92990705197B013D00F08E5F /* MessengerPrototypeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessengerPrototypeTests.swift; sourceTree = "<group>"; };
 		9299070F197B149F00F08E5F /* MessengerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessengerTableViewController.swift; sourceTree = "<group>"; };
 		92990711197B169D00F08E5F /* MessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
+		92A49CEF198ED4FC006AFEDC /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		92D2D9F1198DD26E00B297BB /* MainTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -88,6 +90,7 @@
 				92990711197B169D00F08E5F /* MessageTableViewCell.swift */,
 				92116327197CD29800C2D412 /* ContainerViewController.swift */,
 				92116329197CD44B00C2D412 /* MessageTextField.swift */,
+				92A49CEF198ED4FC006AFEDC /* User.swift */,
 				929906F6197B013D00F08E5F /* Main.storyboard */,
 				92D2D9F1198DD26E00B297BB /* MainTableViewCell.xib */,
 				929906F9197B013D00F08E5F /* Images.xcassets */,
@@ -224,6 +227,7 @@
 			files = (
 				929906F3197B013D00F08E5F /* AppDelegate.swift in Sources */,
 				92990710197B149F00F08E5F /* MessengerTableViewController.swift in Sources */,
+				92A49CF0198ED4FC006AFEDC /* User.swift in Sources */,
 				9211632A197CD44B00C2D412 /* MessageTextField.swift in Sources */,
 				92116328197CD29800C2D412 /* ContainerViewController.swift in Sources */,
 				92990712197B169D00F08E5F /* MessageTableViewCell.swift in Sources */,
