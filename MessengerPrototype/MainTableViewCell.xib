@@ -22,8 +22,17 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="blueArrow" translatesAutoresizingMaskIntoConstraints="NO" id="3UY-8l-Bqo">
+                        <rect key="frame" x="252" y="12" width="22" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="jZR-JQ-S7j"/>
+                            <constraint firstAttribute="width" constant="15" id="oYS-8M-Te7"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="bottom" secondItem="3UY-8l-Bqo" secondAttribute="bottom" constant="10" id="3qm-4J-Gfc"/>
+                    <constraint firstItem="3UY-8l-Bqo" firstAttribute="trailing" secondItem="1aH-D1-Qrn" secondAttribute="trailing" constant="13" id="7iJ-Yf-u12"/>
                     <constraint firstItem="GPt-t2-PPP" firstAttribute="trailing" secondItem="1aH-D1-Qrn" secondAttribute="trailing" constant="7" id="9uQ-UF-Br3"/>
                     <constraint firstAttribute="centerY" secondItem="1aH-D1-Qrn" secondAttribute="centerY" id="ATU-EK-dIb"/>
                     <constraint firstAttribute="trailing" secondItem="1aH-D1-Qrn" secondAttribute="trailing" constant="15" id="Bzd-0u-5Gz"/>
@@ -36,7 +45,10 @@
                 <outlet property="messageLabel" destination="1aH-D1-Qrn" id="H2R-GH-2jZ"/>
                 <outlet property="msgBubble" destination="GPt-t2-PPP" id="jzZ-ee-nFr"/>
             </connections>
-            <point key="canvasLocation" x="626" y="250"/>
+            <point key="canvasLocation" x="626" y="249"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="blueArrow" width="439" height="439"/>
+    </resources>
 </document>

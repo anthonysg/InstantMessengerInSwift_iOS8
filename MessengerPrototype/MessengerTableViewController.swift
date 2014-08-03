@@ -13,6 +13,10 @@ class MessengerTableViewController: UITableViewController, UITableViewDataSource
     var friends = [String]()
     var profileImage = UIImage()
     
+    var user1 = User(name: "user1")
+    var user2 = User(name: "user2")
+    var isHidden = [Bool]()
+    
     var preferredWidth = CGFloat()
     
     init(coder aDecoder: NSCoder!) {
@@ -21,9 +25,17 @@ class MessengerTableViewController: UITableViewController, UITableViewDataSource
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        friends = ["Hey Dude!", "How are you?", "Been doing good, just been coding and playing alot of dota..", "Ah well that sounds like fun.", "Yup", "asda", "dasd", "addad", "sup", "dasdadad", "dasdfas", "dsad a dasdadada d", "dasd asd ad a da dsadf as fas fas fas f adfas fasd fas dfas dfa "]
+        friends = ["Hey Dude!", "How are you?", "Been doing good, just been coding and playing alot of dota..", "Ah well that sounds like fun.", "Yup", "asda", "dasd", "addad", "AGH!", "dasdadad", "dasdfas", "dsad a dasdadada d", "dasd asd ad a da dsadf as fas fas fas f adfas fasd fas dfas dfa "]
+        
+        for var i = 0; i < friends.count; i++ { //If hooked up to a backend, this would look at a dictionary's key values and base it on consecutive messages.
+            if i == 1 || i == 3 || i == 5 || i == friends.count - 1 { isHidden.append(false)
+            } else {
+                isHidden.append(true)
+            }
+        }
+        //println(isHidden.description)
+        
         profileImage = UIImage(named: "sample_user_image")
-        //consecutiveProfileImageCounter = 0
         self.tableView.separatorColor = UIColor.clearColor()
         
         self.refreshControl.beginRefreshing()
@@ -100,6 +112,8 @@ class MessengerTableViewController: UITableViewController, UITableViewDataSource
         cell.messageLabel.text = friends[indexPath!.row]
         cell.messageLabel.sizeToFit()
         cell.messageLabel.setNeedsDisplay()
+        
+        cell.userImageView.hidden = isHidden[indexPath!.row]
         
         //Creation of second cell type - This code design can be highly modified for better performance.
         let cell2 = tableView!.dequeueReusableCellWithIdentifier("SecondCell", forIndexPath: indexPath) as MessageTableViewCell

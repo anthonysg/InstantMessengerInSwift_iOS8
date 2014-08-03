@@ -15,6 +15,7 @@ class ContainerViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var toolBar : UIToolbar!
     @IBOutlet var containerViewController : UIView!
     @IBOutlet var lightGreyBorder : UIView!
+    @IBOutlet weak var bottomConstraintOfContainer: NSLayoutConstraint!
     
     var child : MessengerTableViewController?
     var childView : UITableView?
@@ -31,7 +32,6 @@ class ContainerViewController: UIViewController, UITextFieldDelegate {
         registerForKeyboardNotifications()
         toolBar.clipsToBounds = true
         self.view.bringSubviewToFront(lightGreyBorder)
-        
         /* **FOR INPUTACCESSORYVIEW*** refer to https://github.com/666tos/CustomAccessoryViewSample **for iOS8**
         var textF = UITextField(frame: CGRectMake(0, 300, self.textField.frame.size.width, self.textField.frame.size.height))
         textF.backgroundColor = UIColor.redColor()
@@ -120,10 +120,13 @@ class ContainerViewController: UIViewController, UITextFieldDelegate {
     }
     
     //Bugs
+    //-Improperly adjusting containerViewController on iPhone5/iPhone5s for Landscape Mode.
     //-fix landscape mode autolayout for baseConstraint (toolbar/textfield fill whole screen).
     //-fix baseConstraint on iPad as well / Clean up code from modifying this stuff.
     //-Take a look at 'delayed autolayout' bug
-    //-textField starts new line after series of characters (multiline text view)
+    
+    //Features
     //-"Send" Button on toolBar
     //-'slowly' dismiss keyboard
+    //-textField starts new line after series of characters (multiline text view)
 }
