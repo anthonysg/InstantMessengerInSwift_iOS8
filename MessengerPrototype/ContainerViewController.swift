@@ -15,7 +15,6 @@ class ContainerViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var toolBar : UIToolbar!
     @IBOutlet var containerViewController : UIView!
     @IBOutlet var lightGreyBorder : UIView!
-    @IBOutlet weak var bottomConstraintOfContainer: NSLayoutConstraint!
     
     var child : MessengerTableViewController?
     var childView : UITableView?
