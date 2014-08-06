@@ -13,9 +13,13 @@ class MessageTableViewCell: UITableViewCell {
     @IBOutlet var msgBubble : UIView!
     @IBOutlet var userImageView: UIImageView!
     
-    init(style: UITableViewCellStyle, reuseIdentifier: String) {
+    override init(style: UITableViewCellStyle, reuseIdentifier: String) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         // Initialization code
+    }
+    
+    required init(coder aDecoder: NSCoder!) { //requirement from XCode 6 Beta 5
+        super.init(coder: aDecoder)
     }
 
     override func awakeFromNib() {

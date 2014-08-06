@@ -19,7 +19,7 @@ class MessengerTableViewController: UITableViewController, UITableViewDataSource
     
     var preferredWidth = CGFloat()
     
-    init(coder aDecoder: NSCoder!) {
+    required init(coder aDecoder: NSCoder!) {
         super.init(coder: aDecoder)
     }
     

@@ -20,7 +20,7 @@ class ContainerViewController: UIViewController, UITextFieldDelegate {
     var childView : UITableView?
     var msgDelegate : MessengerTableViewControllerDelegate?
     
-    init(coder aDecoder: NSCoder!) {
+    required init(coder aDecoder: NSCoder!) {
         super.init(coder: aDecoder)
         //self.msgDelegate = MessengerTableViewController(coder: nil)
     }
@@ -120,12 +120,12 @@ class ContainerViewController: UIViewController, UITextFieldDelegate {
     
     //Bugs
     //-Improperly adjusting containerViewController on iPhone5/iPhone5s for Landscape Mode.
-    //-fix landscape mode autolayout for baseConstraint (toolbar/textfield fill whole screen).
+    //-fix landscape mode autolayout for baseConstraint (toolbar/textfield fill whole screen). (use keyboard frame height)
     //-fix baseConstraint on iPad as well / Clean up code from modifying this stuff.
     //-Take a look at 'delayed autolayout' bug
     
-    //Features
+    //Features To Implement
     //-"Send" Button on toolBar
-    //-'slowly' dismiss keyboard
+    //-'slowly' dismiss keyboard (inputAccessibleView required)
     //-textField starts new line after series of characters (multiline text view)
 }
