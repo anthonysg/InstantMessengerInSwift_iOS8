@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6185.11" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="q2R-gG-4Tg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6205" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="q2R-gG-4Tg">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6190.4"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6198"/>
     </dependencies>
     <scenes>
         <!--Messaging Prototype-->
@@ -60,36 +60,6 @@
                                     <outlet property="userImageView" destination="SdY-kX-4qa" id="5wU-mf-YGd"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="newCell" id="1Eh-eL-17m" customClass="MessageTableViewCell" customModule="MessengerPrototype" customModuleProvider="target">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1Eh-eL-17m" id="uPp-zh-oCl">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7fv-N7-Kmg">
-                                            <rect key="frame" x="375" y="4" width="56" height="35"/>
-                                            <color key="backgroundColor" red="0.3243835924224287" green="0.54018021399072891" blue="0.89096380739795922" alpha="1" colorSpace="calibratedRGB"/>
-                                        </view>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hSc-SG-tFH">
-                                            <rect key="frame" x="382" y="11" width="42" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="7fv-N7-Kmg" firstAttribute="trailing" secondItem="hSc-SG-tFH" secondAttribute="trailing" constant="7" id="3a2-oE-xKt"/>
-                                        <constraint firstItem="7fv-N7-Kmg" firstAttribute="top" secondItem="hSc-SG-tFH" secondAttribute="top" constant="-7" id="7fi-Qk-z0G"/>
-                                        <constraint firstItem="7fv-N7-Kmg" firstAttribute="bottom" secondItem="hSc-SG-tFH" secondAttribute="bottom" constant="7" id="BOG-WI-dv9"/>
-                                        <constraint firstItem="hSc-SG-tFH" firstAttribute="centerY" secondItem="uPp-zh-oCl" secondAttribute="centerY" id="JJP-hX-a3J"/>
-                                        <constraint firstItem="hSc-SG-tFH" firstAttribute="leading" secondItem="uPp-zh-oCl" secondAttribute="leading" constant="382" id="KrO-Eo-bta"/>
-                                        <constraint firstItem="7fv-N7-Kmg" firstAttribute="leading" secondItem="hSc-SG-tFH" secondAttribute="leading" constant="-7" id="ngU-ba-bGJ"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="messageLabel" destination="hSc-SG-tFH" id="xKg-RG-4k8"/>
-                                    <outlet property="msgBubble" destination="7fv-N7-Kmg" id="WBn-6n-nPT"/>
-                                </connections>
-                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="18o-nB-5Av" id="yU3-Ci-MGN"/>
@@ -125,7 +95,7 @@
                                 </constraints>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="send"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lJN-NK-mon">
                                 <rect key="frame" x="0.0" y="523" width="600" height="1"/>
@@ -134,7 +104,7 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ebk-fF-M4b">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
-                                    <barButtonItem title="Ping" id="OHH-Yb-rQw"/>
+                                    <barButtonItem title=": )" id="OHH-Yb-rQw"/>
                                 </items>
                                 <color key="barTintColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                             </toolbar>

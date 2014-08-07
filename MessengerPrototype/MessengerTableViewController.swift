@@ -27,12 +27,6 @@ class MessengerTableViewController: UITableViewController, UITableViewDataSource
         super.viewDidLoad()
         friends = ["Hey Dude!", "How are you?", "Been doing good, just been coding and playing alot of dota..", "Ah well that sounds like fun.", "Yup", "asda", "dasd", "addad", "AGH!", "dasdadad", "dasdfas", "dsad a dasdadada d", "dasd asd ad a da dsadf as fas fas fas f adfas fasd fas dfas dfa "]
         
-        for var i = 0; i < friends.count; i++ { //If hooked up to a backend, this would look at a dictionary's key values and base it on consecutive messages.
-            if i == 1 || i == 3 || i == 5 || i == friends.count - 1 { isHidden.append(false)
-            } else {
-                isHidden.append(true)
-            }
-        }
         //println(isHidden.description)
         
         profileImage = UIImage(named: "sample_user_image")
@@ -94,9 +88,14 @@ class MessengerTableViewController: UITableViewController, UITableViewDataSource
     
     override func tableView(tableView: UITableView?, cellForRowAtIndexPath indexPath: NSIndexPath?) -> UITableViewCell? {
         let cell = tableView!.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as MessageTableViewCell
-        //let cell2 = tableView!.dequeueReusableCellWithIdentifier("newCell", forIndexPath: indexPath) as MessageTableViewCell
-        //cell.messageLabel.lineBreakMode = NSLineBreakMode.ByWordWrapping
-        //cell.messageLabel.numberOfLines = 0
+        
+        for var i = 0; i < friends.count; i++ { //If hooked up to a backend, this would look at a dictionary's key values and base it on consecutive messages.
+            if i == 2 || i == 0 || i == 4 || i == 6 || i == friends.count - 1 { isHidden.append(false)
+            } else {
+                isHidden.append(true)
+            }
+        }
+        
         cell.userImageView.image = profileImage
         cell.userImageView.layer.masksToBounds = true
         cell.userImageView.layer.cornerRadius = 13.7
@@ -126,10 +125,10 @@ class MessengerTableViewController: UITableViewController, UITableViewDataSource
         cell2.messageLabel.sizeToFit()
         cell2.messageLabel.setNeedsDisplay()
         
-        if (indexPath!.item != 2 && indexPath!.item != 4 && indexPath!.item != 6) {
-            return cell2 }
-        else {
+        if (indexPath!.item != 2 && indexPath!.item != 4 && indexPath!.item != 6 && indexPath!.item != 0) {
             return cell }
+        else {
+            return cell2 }
     }
 
     override func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
@@ -150,17 +149,17 @@ class MessengerTableViewController: UITableViewController, UITableViewDataSource
     override func willRotateToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval)
     {
         self.tableView.reloadData()
+        /*if (toInterfaceOrientation.isLandscape == true) {
+            self.tableView.contentInset.bottom = self.tableView.contentInset.bottom + 50
+        } */
     }
     
     func messengerScrollToBottom(firstTimeOccurring firstTime : Bool) {
-        //self.tableView.scrollToNearestSelectedRowAtScrollPosition(UITableViewScrollPosition.Bottom, animated: true)
-        //self.tableView.scrollToRowAtIndexPath(NSIndexPath(forRow: friends.count, inSection: 0), atScrollPosition: UITableViewScrollPosition.Bottom, animated: true)
-        
         
         if firstTime == true {
             self.tableView.setContentOffset(CGPointMake(0, CGFloat.max), animated: true)
         } else {
-        self.tableView.setContentOffset(CGPointMake(0, self.tableView.contentSize.height - self.tableView.bounds.size.height), animated: true)
+            self.tableView.setContentOffset(CGPointMake(0, self.tableView.contentSize.height - self.tableView.bounds.size.height), animated: true)
         }
 
     }
@@ -203,6 +202,8 @@ class MessengerTableViewController: UITableViewController, UITableViewDataSource
     */
 
 }
+
+//*** MessengerTableCViewControllerDelegate Protocol ***//
 
 protocol MessengerTableViewControllerDelegate {
     func messengerScrollToBottom(firstTimeOccurring firstTime : Bool)

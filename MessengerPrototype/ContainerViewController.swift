@@ -67,7 +67,12 @@ class ContainerViewController: UIViewController, UITextFieldDelegate {
     }
 
     func textFieldShouldReturn(textField: UITextField!) -> Bool {
-        self.textField.resignFirstResponder()
+        if (self.textField.text == ""){
+            return true }
+        child!.friends.append(textField.text)
+        self.textField.text = ""
+        childView!.reloadData()
+        self.msgDelegate!.messengerScrollToBottom(firstTimeOccurring: false)
         return true
     }
     
@@ -85,7 +90,9 @@ class ContainerViewController: UIViewController, UITextFieldDelegate {
         let info = aNotification.userInfo
         let duration = (info[UIKeyboardAnimationDurationUserInfoKey] as NSValue) as Double
         let curve = (info[UIKeyboardAnimationCurveUserInfoKey] as NSValue) as UInt
+        let height = (info[UIKeyboardFrameEndUserInfoKey] as NSValue) //
         
+
         //self.view.setNeedsLayout()
         baseConstraint.constant = 211
         self.view.setNeedsUpdateConstraints()
@@ -122,7 +129,7 @@ class ContainerViewController: UIViewController, UITextFieldDelegate {
     //-Improperly adjusting containerViewController on iPhone5/iPhone5s for Landscape Mode.
     //-fix landscape mode autolayout for baseConstraint (toolbar/textfield fill whole screen). (use keyboard frame height)
     //-fix baseConstraint on iPad as well / Clean up code from modifying this stuff.
-    //-Take a look at 'delayed autolayout' bug
+    //-Take a look at 'delayed autolayout' bug (This has been fixed as of XCode 6 Beta 5)
     
     //Features To Implement
     //-"Send" Button on toolBar
