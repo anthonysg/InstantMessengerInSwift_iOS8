@@ -104,7 +104,30 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ebk-fF-M4b">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
-                                    <barButtonItem title=": )" id="OHH-Yb-rQw"/>
+                                    <barButtonItem systemItem="add" id="OHH-Yb-rQw">
+                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="g8c-UI-0uz"/>
+                                    <barButtonItem systemItem="camera" id="9fA-EA-41h">
+                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Dlg-bn-P3I"/>
+                                    <barButtonItem systemItem="search" id="H4R-lQ-lad">
+                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="25Y-w5-2mR"/>
+                                    <barButtonItem systemItem="refresh" id="S6b-L6-yrt">
+                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="jDF-nZ-YNT"/>
+                                    <barButtonItem systemItem="bookmarks" id="hiI-Qm-aVU">
+                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="w9v-QL-D14"/>
+                                    <barButtonItem systemItem="trash" id="R9P-UR-FcJ">
+                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="2Wg-bV-61i"/>
                                 </items>
                                 <color key="barTintColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                             </toolbar>
@@ -137,6 +160,7 @@
                     <connections>
                         <outlet property="baseConstraint" destination="95w-eT-SsR" id="C6V-Tb-Oqg"/>
                         <outlet property="containerViewController" destination="3kZ-Jz-2fw" id="kPV-Nm-TWn"/>
+                        <outlet property="groupBarItem" destination="OHH-Yb-rQw" id="kG1-c5-G6w"/>
                         <outlet property="lightGreyBorder" destination="lJN-NK-mon" id="wqt-4Z-oLf"/>
                         <outlet property="textField" destination="IuV-m7-vQ6" id="0fQ-Np-ckS"/>
                         <outlet property="toolBar" destination="Ebk-fF-M4b" id="t1l-bM-TLI"/>

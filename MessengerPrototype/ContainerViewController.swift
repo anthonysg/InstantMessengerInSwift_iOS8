@@ -10,6 +10,7 @@ import UIKit
 
 class ContainerViewController: UIViewController, UITextFieldDelegate {
 
+    @IBOutlet var groupBarItem: UIBarButtonItem!
     @IBOutlet var baseConstraint : NSLayoutConstraint!
     @IBOutlet var textField : UITextField!
     @IBOutlet var toolBar : UIToolbar!
@@ -30,6 +31,7 @@ class ContainerViewController: UIViewController, UITextFieldDelegate {
         registerForKeyboardNotifications()
         toolBar.clipsToBounds = true
         self.view.bringSubviewToFront(lightGreyBorder)
+        groupBarItem.setBackgroundImage(UIImage(named: "group-50"), forState: UIControlState.Normal, barMetrics: UIBarMetrics.Default)
         /* **FOR INPUTACCESSORYVIEW IMPLEMENTATION OF UITEXTFIELD** refer to https://github.com/666tos/CustomAccessoryViewSample **for iOS8** */
     }
 
