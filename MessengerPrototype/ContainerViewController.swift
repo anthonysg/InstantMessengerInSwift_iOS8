@@ -90,11 +90,11 @@ class ContainerViewController: UIViewController, UITextFieldDelegate {
         let info = aNotification.userInfo
         let duration = (info[UIKeyboardAnimationDurationUserInfoKey] as NSValue) as Double
         let curve = (info[UIKeyboardAnimationCurveUserInfoKey] as NSValue) as UInt
-        let height = (info[UIKeyboardFrameEndUserInfoKey] as NSValue) //
-        
+        let kbFrame = (info[UIKeyboardFrameEndUserInfoKey] as NSValue).CGRectValue()
+        //println(kbFrame.size.height)
 
         //self.view.setNeedsLayout()
-        baseConstraint.constant = 211
+        baseConstraint.constant = kbFrame.size.height
         self.view.setNeedsUpdateConstraints()
         //self.childView!.setNeedsUpdateConstraints()
         
@@ -127,8 +127,6 @@ class ContainerViewController: UIViewController, UITextFieldDelegate {
     
     //Bugs
     //-Improperly adjusting containerViewController on iPhone5/iPhone5s for Landscape Mode.
-    //-fix landscape mode autolayout for baseConstraint (toolbar/textfield fill whole screen). (use keyboard frame height)
-    //-fix baseConstraint on iPad as well / Clean up code from modifying this stuff.
     //-Take a look at 'delayed autolayout' bug (This has been fixed as of XCode 6 Beta 5)
     
     //Features To Implement
