@@ -22,7 +22,6 @@ class ContainerViewController: UIViewController, UITextFieldDelegate {
     
     required init(coder aDecoder: NSCoder!) {
         super.init(coder: aDecoder)
-        //self.msgDelegate = MessengerTableViewController(coder: nil)
     }
     
     override func viewDidLoad() {
@@ -31,21 +30,7 @@ class ContainerViewController: UIViewController, UITextFieldDelegate {
         registerForKeyboardNotifications()
         toolBar.clipsToBounds = true
         self.view.bringSubviewToFront(lightGreyBorder)
-        /* **FOR INPUTACCESSORYVIEW*** refer to https://github.com/666tos/CustomAccessoryViewSample **for iOS8**
-        var textF = UITextField(frame: CGRectMake(0, 300, self.textField.frame.size.width, self.textField.frame.size.height))
-        textF.backgroundColor = UIColor.redColor()
-        self.view.addSubview(textF)
-        
-        var textF2 = MessageTextField()
-        textF2.borderStyle = UITextBorderStyle.None
-        textF2.frame.size = CGSizeMake(300, 300)
-        textF2.text = self.textField.text
-        textF2.backgroundColor = UIColor.whiteColor()
-        
-        textF.inputAccessoryView = textF2
-        textF2.frame.size = CGSizeMake(300, 300)
-*/
-        // Do any additional setup after loading the view.
+        /* **FOR INPUTACCESSORYVIEW IMPLEMENTATION OF UITEXTFIELD** refer to https://github.com/666tos/CustomAccessoryViewSample **for iOS8** */
     }
 
     override func didReceiveMemoryWarning() {
@@ -55,7 +40,7 @@ class ContainerViewController: UIViewController, UITextFieldDelegate {
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue?, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController ].
+        // Get the new view controller using segue!.destinationViewController. ContainerViewControllers execute this method when loading their contents.
         println(segue!.identifier)
         if segue?.identifier == "tableView" {
             
@@ -63,13 +48,13 @@ class ContainerViewController: UIViewController, UITextFieldDelegate {
             childView = segue!.destinationViewController.view as? UITableView
             self.msgDelegate = child
         }
-        // Pass the selected object to the new view controller.
+        // Passes the selected objects to the new view controller.
     }
 
     func textFieldShouldReturn(textField: UITextField!) -> Bool {
         if (self.textField.text == ""){
             return true }
-        child!.friends.append(textField.text)
+        child!.messages.append(textField.text)
         self.textField.text = ""
         childView!.reloadData()
         self.msgDelegate!.messengerScrollToBottom(firstTimeOccurring: false)
@@ -87,23 +72,21 @@ class ContainerViewController: UIViewController, UITextFieldDelegate {
     }
     
     func keyboardWillShow(aNotification: NSNotification)    {
+        //Collect information about keyboard using its notification.
         let info = aNotification.userInfo
         let duration = (info[UIKeyboardAnimationDurationUserInfoKey] as NSValue) as Double
         let curve = (info[UIKeyboardAnimationCurveUserInfoKey] as NSValue) as UInt
         let kbFrame = (info[UIKeyboardFrameEndUserInfoKey] as NSValue).CGRectValue()
-        //println(kbFrame.size.height)
-
-        //self.view.setNeedsLayout()
+        //Adjust location of UITextField/UIToolBar.
         baseConstraint.constant = kbFrame.size.height
         self.view.setNeedsUpdateConstraints()
-        //self.childView!.setNeedsUpdateConstraints()
-        
+        //Animate it into place.
         UIView.animateWithDuration(duration, delay: 0, options: UIViewAnimationOptions.fromMask(curve), animations: {
         self.view.layoutIfNeeded()
         }, completion: {
         (value: Bool) in println()
         })
-        
+        //Scroll to bottom of screen.
         self.msgDelegate!.messengerScrollToBottom(firstTimeOccurring: false)
     }
     
@@ -117,17 +100,13 @@ class ContainerViewController: UIViewController, UITextFieldDelegate {
         
         UIView.animateWithDuration(duration, delay: 0, options: UIViewAnimationOptions.fromMask(curve), animations: {
             self.view.layoutIfNeeded()
-            //self.view.layoutSubviews()
-            //self.view.setNeedsLayout()
-            //self.childView!.layoutIfNeeded()
             }, completion: {
                 (value: Bool) in println()
             })
     }
     
     //Bugs
-    //-Improperly adjusting containerViewController on iPhone5/iPhone5s for Landscape Mode.
-    //-Take a look at 'delayed autolayout' bug (This has been fixed as of XCode 6 Beta 5)
+    //-Improperly adjusting containerViewController on iPhone5/iPhone5s for Landscape Mode. (ContentInset bug (?))
     
     //Features To Implement
     //-"Send" Button on toolBar

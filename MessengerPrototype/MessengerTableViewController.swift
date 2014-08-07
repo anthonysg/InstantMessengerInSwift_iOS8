@@ -10,11 +10,11 @@ import UIKit
 
 class MessengerTableViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, UITextFieldDelegate, MessengerTableViewControllerDelegate {
 
-    var friends = [String]()
+    var messages = [String]()
     var profileImage = UIImage()
     
-    var user1 = User(name: "user1")
-    var user2 = User(name: "user2")
+    //var user1 = User(name: "user1") //to be used in future release to simulate backend.
+    //var user2 = User(name: "user2") //to be used in future release to simulate backend.
     var isHidden = [Bool]()
     
     var preferredWidth = CGFloat()
@@ -25,9 +25,7 @@ class MessengerTableViewController: UITableViewController, UITableViewDataSource
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        friends = ["Hey Dude!", "How are you?", "Been doing good, just been coding and playing alot of dota..", "Ah well that sounds like fun.", "Yup", "asda", "dasd", "addad", "AGH!", "dasdadad", "dasdfas", "dsad a dasdadada d", "dasd asd ad a da dsadf as fas fas fas f adfas fasd fas dfas dfa "]
-        
-        //println(isHidden.description)
+        messages = ["Hey Dude!", "How are you?", "Been doing good, just been coding and playing alot of dota..", "Ah well that sounds like fun.", "Yup", "asda", "dasd", "addad", "AGH!", "dasdadad", "dasdfas", "dsad a dasdadada d", "dasd asd ad a da dsadf as fas fas fas f adfas fasd fas dfas dfa "]
         
         profileImage = UIImage(named: "sample_user_image")
         self.tableView.separatorColor = UIColor.clearColor()
@@ -43,21 +41,14 @@ class MessengerTableViewController: UITableViewController, UITableViewDataSource
         self.refreshControl.addTarget(self, action:Selector("didRefreshTable"), forControlEvents: UIControlEvents.ValueChanged)
         self.tableView.keyboardDismissMode  =  UIScrollViewKeyboardDismissMode.OnDrag //change to interactive when inputAccessoryView is added.
         
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "SecondCell") //
+        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "SecondCell")
         
         var nibName = UINib(nibName: "MainTableViewCell", bundle:nil)
         self.tableView.registerNib(nibName, forCellReuseIdentifier: "SecondCell")
     }
 
     
-/*    override func scrollViewDidScroll(scrollView: UIScrollView!) {
-        
-    } */
-
-    
     func didRefreshTable() {
-        //self.friends.append("fsfds")
-        //self.profileImages.append("ballmer")
         self.tableView.reloadData() //Just execute the data source functions again to verify it they match model. More useful when the app has a backend.
         let date = NSDate()
         let formatter = NSDateFormatter()
@@ -82,15 +73,15 @@ class MessengerTableViewController: UITableViewController, UITableViewDataSource
     override func tableView(tableView: UITableView?, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return friends.count
+        return messages.count
     }
     
     
     override func tableView(tableView: UITableView?, cellForRowAtIndexPath indexPath: NSIndexPath?) -> UITableViewCell? {
         let cell = tableView!.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as MessageTableViewCell
         
-        for var i = 0; i < friends.count; i++ { //If hooked up to a backend, this would look at a dictionary's key values and base it on consecutive messages.
-            if i == 2 || i == 0 || i == 4 || i == 6 || i == friends.count - 1 { isHidden.append(false)
+        for var i = 0; i < messages.count; i++ { //If hooked up to a backend, this would look at a dictionary's key values and base it on consecutive messages.
+            if i == 2 || i == 0 || i == 4 || i == 6 || i == messages.count - 1 { isHidden.append(false)
             } else {
                 isHidden.append(true)
             }
@@ -108,7 +99,7 @@ class MessengerTableViewController: UITableViewController, UITableViewDataSource
 
         preferredWidth = cell.messageLabel.preferredMaxLayoutWidth
         
-        cell.messageLabel.text = friends[indexPath!.row]
+        cell.messageLabel.text = messages[indexPath!.row]
         cell.messageLabel.sizeToFit()
         cell.messageLabel.setNeedsDisplay()
         
@@ -121,7 +112,7 @@ class MessengerTableViewController: UITableViewController, UITableViewDataSource
         } else {
             cell2.messageLabel.preferredMaxLayoutWidth = cell2.frame.size.width - 80
         }
-        cell2.messageLabel.text = friends[indexPath!.row]
+        cell2.messageLabel.text = messages[indexPath!.row]
         cell2.messageLabel.sizeToFit()
         cell2.messageLabel.setNeedsDisplay()
         
@@ -138,7 +129,7 @@ class MessengerTableViewController: UITableViewController, UITableViewDataSource
         sampleLabel.numberOfLines = 0
         sampleLabel.preferredMaxLayoutWidth = preferredWidth
         
-        sampleLabel.text = friends[indexPath!.row]
+        sampleLabel.text = messages[indexPath!.row]
         sampleLabel.sizeToFit()
         sampleLabel.setNeedsDisplay()
         
@@ -149,8 +140,13 @@ class MessengerTableViewController: UITableViewController, UITableViewDataSource
     override func willRotateToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval)
     {
         self.tableView.reloadData()
-        /*if (toInterfaceOrientation.isLandscape == true) {
+        
+        //**Temp. Fix for widescreen iPhone display tableView contentInset bug. Still causes messages to appear distorted when sent. Uncomment to use.**//
+        /*if (toInterfaceOrientation.isLandscape == true && UIScreen.mainScreen().bounds.size.height == 568) {
             self.tableView.contentInset.bottom = self.tableView.contentInset.bottom + 50
+        }
+        if (toInterfaceOrientation.isPortrait == true && UIScreen.mainScreen().bounds.size.height == 568) {
+            self.tableView.contentInset.bottom = self.tableView.contentInset.bottom - 50
         } */
     }
     
