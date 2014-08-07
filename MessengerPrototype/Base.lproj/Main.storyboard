@@ -160,7 +160,6 @@
                     <connections>
                         <outlet property="baseConstraint" destination="95w-eT-SsR" id="C6V-Tb-Oqg"/>
                         <outlet property="containerViewController" destination="3kZ-Jz-2fw" id="kPV-Nm-TWn"/>
-                        <outlet property="groupBarItem" destination="OHH-Yb-rQw" id="kG1-c5-G6w"/>
                         <outlet property="lightGreyBorder" destination="lJN-NK-mon" id="wqt-4Z-oLf"/>
                         <outlet property="textField" destination="IuV-m7-vQ6" id="0fQ-Np-ckS"/>
                         <outlet property="toolBar" destination="Ebk-fF-M4b" id="t1l-bM-TLI"/>
