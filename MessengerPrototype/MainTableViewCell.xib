@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6205" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6198"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -10,26 +11,31 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5mK-8s-ibX" id="8It-SS-DUq">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GPt-t2-PPP">
                         <rect key="frame" x="208" y="5" width="56" height="35"/>
+                        <animations/>
                         <color key="backgroundColor" red="0.32438359239999998" green="0.54018021400000005" blue="0.89096380740000003" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1aH-D1-Qrn">
                         <rect key="frame" x="215" y="12" width="42" height="21"/>
+                        <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="blueArrow" translatesAutoresizingMaskIntoConstraints="NO" id="3UY-8l-Bqo">
                         <rect key="frame" x="252" y="12" width="22" height="22"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="jZR-JQ-S7j"/>
                             <constraint firstAttribute="width" constant="15" id="oYS-8M-Te7"/>
                         </constraints>
                     </imageView>
                 </subviews>
+                <animations/>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="3UY-8l-Bqo" secondAttribute="bottom" constant="10" id="3qm-4J-Gfc"/>
                     <constraint firstItem="3UY-8l-Bqo" firstAttribute="trailing" secondItem="1aH-D1-Qrn" secondAttribute="trailing" constant="13" id="7iJ-Yf-u12"/>
@@ -41,6 +47,7 @@
                     <constraint firstItem="GPt-t2-PPP" firstAttribute="leading" secondItem="1aH-D1-Qrn" secondAttribute="leading" constant="-7" id="wco-mq-e7S"/>
                 </constraints>
             </tableViewCellContentView>
+            <animations/>
             <connections>
                 <outlet property="messageLabel" destination="1aH-D1-Qrn" id="H2R-GH-2jZ"/>
                 <outlet property="msgBubble" destination="GPt-t2-PPP" id="jzZ-ee-nFr"/>
